@@ -30,6 +30,8 @@ zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule \
   'environment' \
   'tmux' \
+  'git' \
+  'node' \
   'terminal' \
   'editor' \
   'history' \
@@ -206,10 +208,10 @@ zstyle ':prezto:module:syntax-highlighting' styles \
 #
 
 # Auto start a session when Zsh is launched in a local terminal.
-zstyle ':prezto:module:tmux:auto-start' local 'yes'
+# zstyle ':prezto:module:tmux:auto-start' local 'yes'
 
 # Auto start a session when Zsh is launched in a SSH connection.
-zstyle ':prezto:module:tmux:auto-start' remote 'yes'
+# zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
 # Integrate with iTerm2.
 # zstyle ':prezto:module:tmux:iterm' integrate 'yes'
@@ -269,7 +271,7 @@ alias mcreate=mcreate_function
 
 opengit() {
     if [ -d .git ]; then
-        remotes=$(git remote -v | awk -F'git@github.com:' '{print $2}' | cut -d" " -f1)
+        remotes=$(git remote -v | awk -F'git@github.com:' 'NR!=2{print $2}' | cut -d" " -f1)
         if [ -z "$remotes" ];
         then
             remotes=$(git remote -v | awk -F'https://github.com/' '{print $2}' | cut -d" " -f1)
