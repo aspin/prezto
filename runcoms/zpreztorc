@@ -227,38 +227,11 @@ zstyle ':prezto:module:syntax-highlighting' styles \
 # before deleting or overwriting files. Set to 'no' to disable this safer
 # behavior.
 # zstyle ':prezto:module:utility' safe-ops 'yes'
-
 #
-# capricious specific configuration
-#   by Kevin Chen
-#
+source ~/.machine-conf
 
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH:~/bin:/Users/aspin/Libraries/android-sdk/platform-tools/"
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
-
-# Android
-export ANDROID_HOME='/Volumes/RIGEL/android-sdk'
-
-# Vagrant
-export VAGRANT_HOME='/Volumes/RIGEL/vagrant_home'
-
-# EECS 345
-export GOPATH='/Users/aspin/eecs345/kademlia-dht'
-export GO15VENDOREXPERIMENT=1
-
-#ssh keys
-alias ssh_tlab='ssh -Y kjc004@tlab-14.ece.northwestern.edu'
-alias ssh_tlab2='ssh -Y kjc004@tlab-13.ece.northwestern.edu'
-alias ssh_quest='ssh -Y kjc004@quest.it.northwestern.edu'
-alias ssh_kc='ssh -Y root@45.55.69.255'
-alias ssh_mh='ssh root@45.55.25.239'
-alias ssh_yo='ssh root@159.203.104.179'
-alias ssh_dtr='ssh root@192.241.188.11'
-
-alias pi='python -i'
-alias l='ls'
+export NVM_DIR="/home/aspin/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 mcreate_function() {
   git clone https://github.com/aspin/meteor-starter $1
