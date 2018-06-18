@@ -31,7 +31,7 @@ zstyle ':prezto:load' pmodule \
   'environment' \
   'tmux' \
   'git' \
-  'node' \
+  'nvm' \
   'terminal' \
   'editor' \
   'history' \
@@ -230,8 +230,10 @@ zstyle ':prezto:module:syntax-highlighting' styles \
 #
 source ~/.machine-conf
 
-export NVM_DIR="/home/aspin/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+autoload -U zmv
+
+export NVM_LAZY_LOAD=true
+export FZF_DEFAULT_COMMAND='ag -g ""'
 
 mcreate_function() {
   git clone https://github.com/aspin/meteor-starter $1
@@ -260,3 +262,6 @@ opengit() {
 }
 
 alias gh=opengit
+
+alias flow='nocorrect flow'
+alias git_root='cd $(git rev-parse --show-toplevel)'
