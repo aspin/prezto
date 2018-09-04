@@ -228,12 +228,26 @@ zstyle ':prezto:module:syntax-highlighting' styles \
 # behavior.
 # zstyle ':prezto:module:utility' safe-ops 'yes'
 #
-source ~/.machine-conf
+
+MACHINE_CONF=~/.machine-conf
+if [ -f $MACHINE_CONF ]; then
+  source $MACHINE_CONF
+else
+  echo "machine specific config not found: $MACHINE_CONF"
+fi
 
 autoload -U zmv
 
 export NVM_LAZY_LOAD=true
 export FZF_DEFAULT_COMMAND='ag -g ""'
+
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+  export WORKON_HOME=~/virtualenv
+  mkdir -p $WORKON_HOME
+  source /usr/local/bin/virtualenvwrapper.sh
+else
+  echo "virtualenvwrapper is not configured"
+fi
 
 mcreate_function() {
   git clone https://github.com/aspin/meteor-starter $1
@@ -265,3 +279,6 @@ alias gh=opengit
 
 alias flow='nocorrect flow'
 alias git_root='cd $(git rev-parse --show-toplevel)'
+alias ls='ls -F'
+alias ll='ls -Flah'
+
