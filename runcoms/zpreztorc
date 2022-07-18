@@ -265,4 +265,4 @@ else
   echo "virtualenvwrapper is not configured"
 fi
 
-eval "$(/opts/homebrew/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
