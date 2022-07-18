@@ -237,23 +237,25 @@ else
 fi
 
 autoload -U zmv
-
 . /opt/homebrew/etc/profile.d/z.sh
 
+
+# environment variables
 export NVM_LAZY_LOAD=true
 export FZF_DEFAULT_COMMAND='ag -g ""'
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR
 
+# aliases
 alias git=hub
-
 alias vim="mvim -v"
 alias flow='nocorrect flow'
 alias git_root='cd $(git rev-parse --show-toplevel)'
 alias ls='ls -F'
 alias ll='ls -Flah'
 
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR
-
+# configure python
+eval "$(/opt/homebrew/bin/brew shellenv)"
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
 eval "$(pyenv init -)"
 
@@ -265,4 +267,3 @@ else
   echo "virtualenvwrapper is not configured"
 fi
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
