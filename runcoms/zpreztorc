@@ -245,7 +245,7 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 
 alias git=hub
 
-aslias vim="mvim -v"
+alias vim="mvim -v"
 alias flow='nocorrect flow'
 alias git_root='cd $(git rev-parse --show-toplevel)'
 alias ls='ls -F'
