@@ -238,7 +238,7 @@ fi
 
 autoload -U zmv
 
-. /usr/local/etc/profile.d/z.sh
+. /opt/homebrew/etc/profile.d/z.sh
 
 export NVM_LAZY_LOAD=true
 export FZF_DEFAULT_COMMAND='ag -g ""'
