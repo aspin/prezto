@@ -248,6 +248,7 @@ VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR
 
 # aliases
 alias git=hub
+alias vi=vim
 alias vim="mvim -v"
 alias flow='nocorrect flow'
 alias git_root='cd $(git rev-parse --show-toplevel)'
