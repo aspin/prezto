@@ -260,10 +260,11 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
 eval "$(pyenv init -)"
 
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+VENV_WRAPPER=$(pyenv which virtualenvwrapper.sh)
+if [ -f $VENV_WRAPPER ]; then
   export WORKON_HOME=~/virtualenv
   mkdir -p $WORKON_HOME
-  source /usr/local/bin/virtualenvwrapper.sh
+  source $VENV_WRAPPER
 else
   echo "virtualenvwrapper is not configured"
 fi
