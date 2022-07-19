@@ -1,43 +1,39 @@
-# Homebrew
+Homebrew
+========
 
-Defines Homebrew specific environment variables and aliases.
+Defines Homebrew aliases.
 
-## Variables
+Aliases
+-------
 
-Execute the following to list the environment variables loaded in the shell:
+### Homebrew
 
-```sh
-brew shellenv
-```
-
-## Aliases
-
-### Homebrew Core
-
-- `brewc` cleans outdated brews and their cached archives.
-- `brewi` installs a formula.
-- `brewL` lists installed formulae that are not dependencies of another
-  installed formula.
-- `brewl` lists installed formulae.
-- `brewo` lists brews which have an update available.
-- `brews` searches for a formula.
-- `brewu` upgrades outdated formulae.
-- `brewx` uninstalls a formula.
+  - `brewc` cleans outdated brews and their cached archives.
+  - `brewC` cleans outdated brews, including keg-only, and their cached archives.
+  - `brewi` installs a formula.
+  - `brewl` lists installed formulae.
+  - `brewo` lists brews which have an update available.
+  - `brews` searches for a formula.
+  - `brewu` updates and upgrades Homebrew packages and formulae.
+  - `brewx` uninstalls a formula.
 
 ### Homebrew Cask
 
-- `caski` installs a cask.
-- `caskl` lists installed casks.
-- `casko` lists casks which have an update available.
-- `casks` searches for a cask.
-- `casku` upgrades outdated casks.
-- `caskx` uninstalls a cask.
+  - `cask` is aliased to `brew cask`.
+  - `caskc` cleans up old cached downloads.
+  - `caskC` cleans up all cached downloads.
+  - `caski` installs a cask.
+  - `caskl` lists installed casks.
+  - `casko` lists casks which have an update available.
+  - `casks` searches for a cask.
+  - `caskx` uninstalls a cask.
 
-## Authors
+Authors
+-------
 
-_The authors of this module should be contacted via the [issue tracker][1]._
+*The authors of this module should be contacted via the [issue tracker][1].*
 
-- [Sorin Ionescu](https://github.com/sorin-ionescu)
-- [Griffin Yourick](https://github.com/tough-griff)
+  - [Sorin Ionescu](https://github.com/sorin-ionescu)
+  - [Griffin Yourick](https://github.com/tough-griff)
 
 [1]: https://github.com/sorin-ionescu/prezto/issues

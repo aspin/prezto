@@ -28,4 +28,3 @@ unset current_pwd
 print "$ret_directory"
 
 # }
-# vim: ft=zsh
