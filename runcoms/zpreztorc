@@ -5,7 +5,6 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
-
 #
 # General
 #
@@ -246,15 +245,13 @@ zstyle ':prezto:module:syntax-highlighting' styles \
 # zstyle ':prezto:module:utility' safe-ops 'yes'
 #
 
-MACHINE_CONF=~/.machine-conf
-if [ -f $MACHINE_CONF ]; then
-  source $MACHINE_CONF
-else
-  echo "machine specific config not found: $MACHINE_CONF"
-fi
-
+# load zmv, z, completion
 autoload -U zmv
 . /opt/homebrew/etc/profile.d/z.sh
+
+export FPATH=/opt/homebrew/share/zsh/site-functions:$FPATH
+autoload -Uz compinit 
+compinit
 
 
 # environment variables
@@ -262,6 +259,7 @@ export NVM_LAZY_LOAD=true
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR
+
 
 # aliases
 alias git=hub
@@ -284,5 +282,13 @@ if [ -f $VENV_WRAPPER ]; then
   source $VENV_WRAPPER
 else
   echo "virtualenvwrapper is not configured"
+fi
+
+# source any machine specific configuration
+MACHINE_CONF=~/.primaveral-conf
+if [ -f $MACHINE_CONF ]; then
+  source $MACHINE_CONF
+else
+  echo "machine specific config not found: $MACHINE_CONF"
 fi
 
