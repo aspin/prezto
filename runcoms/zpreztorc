@@ -43,7 +43,8 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'syntax-highlighting' \
   'history-substring-search' \
-  'prompt'
+  'prompt' \
+  'zsh-z'
 
 #
 # Autosuggestions
@@ -245,10 +246,10 @@ zstyle ':prezto:module:syntax-highlighting' styles \
 # zstyle ':prezto:module:utility' safe-ops 'yes'
 #
 
-# load zmv, z, completion
+# load zmv, completion
 autoload -U zmv
-. /opt/homebrew/etc/profile.d/z.sh
 
+zstyle ':completion:*' menu select
 export FPATH=/opt/homebrew/share/zsh/site-functions:$FPATH
 autoload -Uz compinit 
 compinit
