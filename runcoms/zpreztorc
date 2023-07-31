@@ -262,7 +262,6 @@ VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR
 
 
 # aliases
-alias git=hub
 alias vi=vim
 alias vim="mvim -v"
 alias flow='nocorrect flow'
@@ -285,7 +284,7 @@ else
 fi
 
 # source any machine specific configuration
-MACHINE_CONF=~/.primaveral-conf
+MACHINE_CONF=~/.quasar-conf
 if [ -f $MACHINE_CONF ]; then
   source $MACHINE_CONF
 else
