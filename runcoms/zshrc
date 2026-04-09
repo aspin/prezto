@@ -5,15 +5,32 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-# profiling
-# zmodload zsh/zprof
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# NVM lazy stubs — replaces prezto nvm module (which loads eagerly despite NVM_LAZY_LOAD)
+export NVM_DIR="$HOME/.nvm"
+_nvm_load() {
+    unfunction nvm node npm npx yarn 2>/dev/null
+    [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+    [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
+}
+nvm()  { _nvm_load; nvm "$@" }
+node() { _nvm_load; node "$@" }
+npm()  { _nvm_load; npm "$@" }
+npx()  { _nvm_load; npx "$@" }
+yarn() { _nvm_load; yarn "$@" }
 export PATH=$HOME/.local/bin:$PATH
 
-# zprof
+# Lazy-load thefuck — avoids spawning Python on every shell start
+fuck() {
+    unfunction fuck
+    eval "$(thefuck --alias)"
+    fuck "$@"
+}
+
+export AWS_SDK_LOAD_CONFIG=1
